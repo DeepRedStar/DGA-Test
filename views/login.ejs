@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h1>Login</h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form method="post" action="/login" class="card">
+  <label>Benutzername <input name="username" required /></label>
+  <label>Passwort <input type="password" name="password" required /></label>
+  <button type="submit">Anmelden</button>
+</form>
+<%- include('partials/footer') %>

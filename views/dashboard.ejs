@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<h1>Dashboard</h1>
+<div class="grid">
+  <article class="card"><h3>In Stock</h3><p><%= stats.inStock %></p></article>
+  <article class="card"><h3>Pfand</h3><p><%= stats.pfand %></p></article>
+  <article class="card"><h3>Sold</h3><p><%= stats.sold %></p></article>
+  <article class="card"><h3>Defect</h3><p><%= stats.defect %></p></article>
+  <article class="card"><h3>Offene Mindestbestandswarnungen</h3><p><%= stats.alerts %></p></article>
+  <article class="card"><h3>Sync-Fehler</h3><p><%= stats.syncErrors %></p></article>
+</div>
+<%- include('partials/footer') %>

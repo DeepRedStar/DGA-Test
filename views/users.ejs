@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+<h1>Benutzerverwaltung</h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form method="post" action="/admin/users" class="card">
+  <label>Benutzername <input name="username" required /></label>
+  <label>Passwort <input type="password" name="password" required minlength="10" /></label>
+  <label>Rolle
+    <select name="role">
+      <option value="getraenkewart">Getränkewart</option>
+      <option value="admin">Admin</option>
+    </select>
+  </label>
+  <label>EasyVerein Benutzer-ID (Pflicht für Getränkewart) <input name="easyvereinUserId" /></label>
+  <button type="submit">Benutzer anlegen</button>
+</form>
+
+<table>
+  <tr><th>ID</th><th>Name</th><th>Rolle</th><th>EasyVerein</th><th>Erstellt</th></tr>
+  <% users.forEach((u) => { %>
+    <tr><td><%= u.id %></td><td><%= u.username %></td><td><%= u.role %></td><td><%= u.easyverein_user_id || '-' %></td><td><%= u.created_at %></td></tr>
+  <% }) %>
+</table>
+<%- include('partials/footer') %>

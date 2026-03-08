@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h1>Getränkekästen</h1>
+<table>
+  <tr><th>ID</th><th>Artikel</th><th>Status</th><th>Lagerort</th><th>Aktiv</th></tr>
+  <% crates.forEach((c) => { %>
+    <tr>
+      <td><%= c.crate_id %></td>
+      <td><%= c.article_name %> (<%= c.article_number %>)</td>
+      <td><%= c.status %></td>
+      <td><%= c.location %></td>
+      <td><%= c.is_active ? 'ja' : 'nein' %></td>
+    </tr>
+  <% }) %>
+</table>
+<%- include('partials/footer') %>

@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h1>Bewegungsverlauf</h1>
+<table>
+  <tr><th>Zeit</th><th>Aktion</th><th>Kasten</th><th>Artikel</th><th>Benutzer</th></tr>
+  <% actions.forEach((a) => { %>
+    <tr>
+      <td><%= a.created_at %></td>
+      <td><%= a.action_type %></td>
+      <td><%= a.external_crate_id || '-' %></td>
+      <td><%= a.article_name || '-' %></td>
+      <td><%= a.username %></td>
+    </tr>
+  <% }) %>
+</table>
+<%- include('partials/footer') %>

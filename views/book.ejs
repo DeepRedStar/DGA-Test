@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+<h1>Einbuchen</h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<% if (result) { %><p class="ok"><%= result %></p><% } %>
+<form method="post" action="/stock/book" class="card">
+  <label>Artikel
+    <select name="articleId" required>
+      <% articles.forEach((a) => { %>
+        <option value="<%= a.id %>"><%= a.article_name %> (<%= a.article_number %>)</option>
+      <% }) %>
+    </select>
+  </label>
+  <label>Menge <input type="number" min="1" name="quantity" value="1" required /></label>
+  <label>Lagerort <input name="location" /></label>
+  <button type="submit">Einbuchen</button>
+</form>
+<%- include('partials/footer') %>
