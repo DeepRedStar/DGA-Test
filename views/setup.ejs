@@ -1,0 +1,10 @@
+<%- include('partials/header') %>
+<h1>Erstsetup</h1>
+<p>Erstelle den ersten Admin-Benutzer.</p>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form method="post" action="/setup" class="card">
+  <label>Admin-Benutzername <input name="username" required /></label>
+  <label>Passwort (mind. 10 Zeichen) <input type="password" name="password" required minlength="10" /></label>
+  <button type="submit">Admin erstellen</button>
+</form>
+<%- include('partials/footer') %>

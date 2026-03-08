@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h1>Sync-Fehler & Mindestbestandswarnungen</h1>
+<h2>Warnungen</h2>
+<ul>
+<% alerts.forEach((a) => { %>
+  <li><%= a.article_name %> (<%= a.article_number %>) seit <%= a.created_at %></li>
+<% }) %>
+</ul>
+<h2>Sync-Fehler</h2>
+<ul>
+<% syncErrors.forEach((e) => { %>
+  <li><%= e.event_type %> - <%= e.last_error || 'Unbekannter Fehler' %></li>
+<% }) %>
+</ul>
+<%- include('partials/footer') %>

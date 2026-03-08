@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+<h1>Scan / Aktionen</h1>
+<p>Kamera-Scan kann über Browser-API ergänzt werden. Manuelle Eingabe bleibt aktiv.</p>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<% if (result) { %><p class="ok"><%= result %></p><% } %>
+
+<h2>Einzelaktion</h2>
+<form method="post" action="/scan/action" class="card">
+  <label>Kasten-ID <input name="crateCode" required placeholder="VW-G-001-1A2B3" /></label>
+  <label>Aktion
+    <select name="actionType">
+      <option value="pfand_umbuchen">pfand_umbuchen</option>
+      <option value="umlagern">umlagern</option>
+      <option value="korrigieren">korrigieren</option>
+      <option value="ausbuchen_an_dritte">ausbuchen_an_dritte</option>
+      <option value="defekt_setzen">defekt_setzen</option>
+      <option value="pfand_rueckgabe">pfand_rueckgabe</option>
+    </select>
+  </label>
+  <label>Neuer Lagerort (falls nötig) <input name="newLocation" /></label>
+  <button type="submit">Ausführen</button>
+</form>
+
+<h2>Massenaktion</h2>
+<form method="post" action="/scan/bulk" class="card">
+  <label>Kasten-IDs (Leerzeichen/Zeilenumbruch getrennt)
+    <textarea name="crateCodes" rows="5" placeholder="VW-G-001-1A2B3\nVW-G-001-1A2B4"></textarea>
+  </label>
+  <label>Aktion
+    <select name="actionType">
+      <option value="pfand_umbuchen">pfand_umbuchen</option>
+      <option value="umlagern">umlagern</option>
+      <option value="korrigieren">korrigieren</option>
+      <option value="ausbuchen_an_dritte">ausbuchen_an_dritte</option>
+      <option value="defekt_setzen">defekt_setzen</option>
+      <option value="pfand_rueckgabe">pfand_rueckgabe</option>
+    </select>
+  </label>
+  <label>Neuer Lagerort (falls nötig) <input name="newLocation" /></label>
+  <button type="submit">Massenaktion ausführen</button>
+</form>
+<%- include('partials/footer') %>

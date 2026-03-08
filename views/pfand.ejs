@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h1>Pfandkästen</h1>
+<table>
+  <tr><th>ID</th><th>Artikel</th><th>Lagerort</th><th>Letzte Änderung</th></tr>
+  <% crates.forEach((c) => { %>
+    <tr><td><%= c.crate_id %></td><td><%= c.article_name %></td><td><%= c.location %></td><td><%= c.updated_at %></td></tr>
+  <% }) %>
+</table>
+<%- include('partials/footer') %>

@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<h1>Einstellungen</h1>
+<form method="post" action="/admin/settings" class="card">
+  <label>EasyVerein API Key <input name="easyverein_api_key" value="<%= config.easyverein_api_key || '' %>" /></label>
+  <label>EasyVerein Base URL <input name="easyverein_base_url" value="<%= config.easyverein_base_url || '' %>" /></label>
+  <label>Lokale Domain <input name="local_domain" value="<%= config.local_domain || 'dga.local' %>" /></label>
+  <label>Netzwerkmodus
+    <select name="network_mode">
+      <option value="dhcp" <%= config.network_mode === 'dhcp' ? 'selected' : '' %>>DHCP</option>
+      <option value="static" <%= config.network_mode === 'static' ? 'selected' : '' %>>Statisch</option>
+    </select>
+  </label>
+  <label>Statische IP (nur Hinweis) <input name="static_ip" value="<%= config.static_ip || '' %>" /></label>
+  <button type="submit">Speichern</button>
+</form>
+
+<form method="post" action="/admin/backup"><button type="submit">Backup erstellen und herunterladen</button></form>
+<form method="post" action="/admin/articles/sample"><button type="submit">Beispielartikel aus EasyVerein laden</button></form>
+<form method="post" action="/admin/sync"><button type="submit">Sync Queue ausführen</button></form>
+<%- include('partials/footer') %>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DGA</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<nav>
+  <a href="/dashboard">Dashboard</a>
+  <% if (user) { %>
+    <a href="/scan">Scan</a>
+    <a href="/crates">Kästen</a>
+    <a href="/pfand">Pfand</a>
+    <a href="/history">Verlauf</a>
+    <a href="/alerts">Warnungen</a>
+    <a href="/stock/book">Einbuchen</a>
+    <% if (user.role === 'admin') { %>
+      <a href="/admin/users">Benutzer</a>
+      <a href="/admin/settings">Einstellungen</a>
+    <% } %>
+    <form method="post" action="/logout" class="inline-form"><button type="submit">Logout</button></form>
+  <% } %>
+</nav>
+<main>
